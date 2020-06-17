@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestStepInfoList>
+  <TestStepInfo TypeName="xxxStep" DisplayName="xxx">
+    <MeasClsInfo TypeName="xxxInstru1" DisplayName="xxx仪表1" Info="xxx">
+      <InstruInfo Name="xxxInstru1" DisplayName="xxx仪表1"/>
+      <Config Name="端口1" Path="path1" Info="xxx"/>
+    </MeasClsInfo>
+  </TestStepInfo>
+  
+    
+  
+</TestStepInfoList> 

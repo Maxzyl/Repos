@@ -1,0 +1,13 @@
+D:\项目\ATR_TR_2017\DS_PA\bin\Debug\DS_PA_Update.exe
+D:\项目\ATR_TR_2017\DS_PA\bin\Debug\DS_PA_Update.pdb
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\UpdateProgressBar.baml
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\UpdateProgressBar.g.cs
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\DS_PA_Update_MarkupCompile.cache
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\DS_PA_Update.g.resources
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\DS_PA_Update.Properties.Resources.resources
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\DS_PA_Update.csproj.GenerateResource.Cache
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\DS_PA_Update.exe
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\DS_PA_Update.pdb
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\DS_PA_Update.csprojAssemblyReference.cache
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\DS_PA_Update.csproj.CoreCompileInputs.cache
+D:\项目\ATR_TR_2017\DS_DA_Update\obj\Debug\DS_PA_Update.csproj.CopyComplete

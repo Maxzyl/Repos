@@ -1,0 +1,9 @@
+D:\项目\ATE Output\DataUtils.dll
+D:\项目\ATE Output\DataUtils.pdb
+D:\项目\ATR_TR_2017\DataUtils\obj\Debug\DataUtils.g.resources
+D:\项目\ATR_TR_2017\DataUtils\obj\Debug\DataUtils.dll.licenses
+D:\项目\ATR_TR_2017\DataUtils\obj\Debug\DataUtils.dll
+D:\项目\ATR_TR_2017\DataUtils\obj\Debug\DataUtils.pdb
+D:\项目\ATR_TR_2017\DataUtils\obj\Debug\DataUtils.csprojAssemblyReference.cache
+D:\项目\ATR_TR_2017\DataUtils\obj\Debug\DataUtils.csproj.CoreCompileInputs.cache
+D:\项目\ATR_TR_2017\DataUtils\obj\Debug\DataUtils.csproj.CopyComplete

@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="ATS_TR.SplashScreen_AMTS"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             d:DataContext="{x:Static dx:SplashScreenViewModel.DesignTimeData}"  xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  Width="551">
+    <Grid x:Name="LayOutRoot">
+        <Grid x:Name="LayoutRoot">
+            <Grid x:Name="Splash" Height="552" Width="552.55" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0">
+                <Grid x:Name="Back">
+                    <Border Background="Black" CornerRadius="3" Opacity="0.15"/>
+                    <Border CornerRadius="2" Margin="1" Background="White"/>
+                </Grid>
+                <Grid x:Name="Content_Area" Margin="1,1,0,1">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/ATS_TR;component/Images/SplashScreen1.png" />
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ProgressBar x:Name="progressBar"
+                             Height="7" Margin="0,416,0,0"
+                             IsIndeterminate="{Binding IsIndeterminate}"
+                             Value="{Binding Progress}"
+                             Maximum="{Binding MaxProgress}" VerticalAlignment="Top" Foreground="#FF5B9BD5" Background="#FF7F7F7F" />
+                    <DockPanel x:Name="Footer" Margin="7,0,17,2" Height="20" VerticalAlignment="Bottom">
+                        <TextBlock x:Name="Footer_Text" TextWrapping="Wrap" Text="Copyright" Opacity="0.9" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Center" FontStyle="Italic" />
+                        <Image x:Name="Logotype" DockPanel.Dock="Right" Stretch="None" HorizontalAlignment="Right"  />
+                    </DockPanel>
+                    <TextBlock x:Name="Info" Margin="7,492,250,0" TextWrapping="Wrap" Text="{Binding State,UpdateSourceTrigger=PropertyChanged,NotifyOnTargetUpdated=True}" TargetUpdated="Info_TargetUpdated" Foreground="#FF5B9BD5"  VerticalAlignment="Top" />
+                    <TextBlock Foreground="#FF5B9BD5" Margin="7,480,250,0" Name="textBlock1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Opacity="0.9" />
+                    <TextBlock Foreground="#FF5B9BD5" Margin="7,476,250,0" Name="textBlock2" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Opacity="0.8" />
+                    <TextBlock Foreground="#FF5B9BD5" Margin="7,472,250,0" Name="textBlock3" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Opacity="0.7" />
+                    <TextBlock Foreground="#FF5B9BD5" Margin="7,468,250,0" Name="textBlock4" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Opacity="0.6" />
+                    <TextBlock Foreground="#FF5B9BD5" Margin="7,464,250,0" Name="textBlock5" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Opacity="0.5" />
+                    <TextBlock Foreground="#FF5B9BD5" Margin="7,460,250,0" Name="textBlock6" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Opacity="0.4" />
+                    <TextBlock Foreground="#FF5B9BD5" Margin="7,456,250,0" Name="textBlock7" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Opacity="0.3" />
+                    <TextBlock Foreground="#FF5B9BD5" Margin="7,452,250,0" Name="textBlock8" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Opacity="0.2" />
+                    <TextBlock Foreground="#FF5B9BD5" Margin="7,448,250,0" Name="textBlock9" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Opacity="0.1" />
+                    <TextBlock FontStyle="Italic" Foreground="Black" HorizontalAlignment="Left" Margin="24,386,0,144" Name="tbRevision" Opacity="0.9" Text="Revision" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" />
+                    <TextBlock FontSize="38" Foreground="#FF5B9BD5" HorizontalAlignment="Left" Margin="22,256,0,235" Name="tbProduct" Opacity="0.9" Text="自动化测试平台" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Calibri"  />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

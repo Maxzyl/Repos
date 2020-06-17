@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7A08239-6446-4AF4-B067-DB07BBFE79CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ViewModelBaseLib</RootNamespace>
+    <AssemblyName>ViewModelBaseLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\ATE Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ATE2MES, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ATE Output\ATE2MES.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Data.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\软件酷\Devexpress1427\Components\Bin\Framework\DevExpress.Mvvm.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\软件酷\Devexpress1427\Components\Bin\Framework\DevExpress.Xpf.Core.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InstruDriver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ATE Output\InstruDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CalibrationVM.cs" />
+    <Compile Include="CommandViewModel.cs" />
+    <Compile Include="ConvertUtils.cs" />
+    <Compile Include="LinkTestStepVM.cs" />
+    <Compile Include="TestPlanLocalSettingVM.cs" />
+    <Compile Include="ManualLoopTestStepVM.cs" />
+    <Compile Include="PointTestItemVM.cs" />
+    <Compile Include="ResultDisplayListenerVM.cs" />
+    <Compile Include="TestGridVM.cs" />
+    <Compile Include="DXSplashScreen\Cal_DXSplashScreen.xaml.cs">
+      <DependentUpon>Cal_DXSplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InstruInfoVM.cs" />
+    <Compile Include="InstruMgrManagerVM.cs" />
+    <Compile Include="InstruMgrVM.cs" />
+    <Compile Include="LoopTestStepVM.cs" />
+    <Compile Include="MainWindowVM.cs" />
+    <Compile Include="recycle\ManualConnectionNode.cs" />
+    <Compile Include="ManualConnectionVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateFileManagerVM.cs" />
+    <Compile Include="StateFileManagerVM_Old.cs" />
+    <Compile Include="recycle\TestMarkerNode.cs" />
+    <Compile Include="TestItemVM.cs" />
+    <Compile Include="TestMarkerVM.cs" />
+    <Compile Include="TestPlanManagerVM.cs" />
+    <Compile Include="TestPlanVM.cs" />
+    <Compile Include="recycle\TestStepNode.cs" />
+    <Compile Include="TestStepVM.cs" />
+    <Compile Include="recycle\TestTraceNode.cs" />
+    <Compile Include="TestTraceVM.cs" />
+    <Compile Include="TreeNodeVM.cs" />
+    <Compile Include="TRTestItemVM.cs" />
+    <Compile Include="Utils\Interface.cs" />
+    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="XYMarkerDisp.cs" />
+    <Compile Include="XYTestMarkerVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SymtantInstruDriver\GeneFunLib\GeneFunLib.csproj">
+      <Project>{e3db0bab-c95d-41d1-9a65-b7e28f4cfcef}</Project>
+      <Name>GeneFunLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataUtils\DataUtils.csproj">
+      <Project>{6ac31983-a6a1-435e-addc-1543f048808d}</Project>
+      <Name>DataUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelBaseLib\ModelBaseLib.csproj">
+      <Project>{6c45f818-29ad-443f-b4fd-d1855fb7ad63}</Project>
+      <Name>ModelBaseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SymtCalc\SymtCalc.csproj">
+      <Project>{12fdd6ce-43ec-42cf-be34-812b98eff774}</Project>
+      <Name>SymtCalc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SymtChartLib\SymtChartLib.csproj">
+      <Project>{52635b02-78dc-49f9-ab6f-5dfbcb50467f}</Project>
+      <Name>SymtChartLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemFunction\SystemFunction.csproj">
+      <Project>{872c0c83-3b31-444b-a59d-36354ac5c4a3}</Project>
+      <Name>SystemFunction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dll\Newtonsoft.Json.dll" />
+    <Content Include="Dll\NPOI.dll" />
+    <Content Include="Dll\NPOI.OOXML.dll" />
+    <Content Include="Dll\NPOI.OpenXml4Net.dll" />
+    <Content Include="Dll\NPOI.OpenXmlFormats.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DXSplashScreen\Cal_DXSplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

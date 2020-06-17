@@ -1,0 +1,13 @@
+D:\项目\ATE Output\ViewModelBaseLib.dll
+D:\项目\ATE Output\ViewModelBaseLib.pdb
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\DXSplashScreen\Cal_DXSplashScreen.g.cs
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\ViewModelBaseLib_MarkupCompile.cache
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\ViewModelBaseLib_MarkupCompile.lref
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\DXSplashScreen\Cal_DXSplashScreen.baml
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\ViewModelBaseLib.g.resources
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\ViewModelBaseLib.dll
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\ViewModelBaseLib.pdb
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\ViewModelBaseLib.csprojAssemblyReference.cache
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\ViewModelBaseLib.csproj.CoreCompileInputs.cache
+D:\项目\ATR_TR_2017\ViewModelBaseLib\obj\Debug\ViewModelBaseLib.csproj.CopyComplete

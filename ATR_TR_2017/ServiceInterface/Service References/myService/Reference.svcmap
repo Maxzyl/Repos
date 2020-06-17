@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4224cf06-bced-493d-9e26-218279d512bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.53.240:8098/SymtService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SymtService.wsdl" MetadataType="Wsdl" ID="057c7b1b-de2d-4569-9994-efb782d6f25e" SourceId="1" SourceUrl="http://192.168.53.240:8098/SymtService.svc?wsdl" />
+    <MetadataFile FileName="SymtService.xsd" MetadataType="Schema" ID="1864fa29-0560-4db0-844a-8c4dba442b12" SourceId="1" SourceUrl="http://192.168.53.240:8098/SymtService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SymtService1.xsd" MetadataType="Schema" ID="a64e5b9c-6ab6-4986-8ab5-2e9f0b19e82d" SourceId="1" SourceUrl="http://192.168.53.240:8098/SymtService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

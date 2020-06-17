@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="UserMaintenance.UserGroup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:UserMaintenance"
+             xmlns:DataUtils="clr-namespace:DataUtils;assembly=DataUtils"
+             xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+             xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             d:DesignHeight="559" d:DesignWidth="537" Loaded="UserGroupControl_Loaded" PreviewKeyDown="UserGroupControl_PreviewKeyDown" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors">
+    <Grid>
+        <dxdo:DockLayoutManager Name="dockLayoutManager1" ClosedPanelsBarVisibility="Never">
+            <dxdo:DockLayoutManager.LayoutRoot>
+                <dxdo:LayoutGroup Caption="LayoutRoot" dxb:MergingProperties.AllowMerging="False" dxb:MergingProperties.ElementMergingBehavior="None" Orientation="Vertical">
+                    <dxdo:LayoutPanel Caption="用户群组数据"  dxb:MergingProperties.AllowMerging="False" dxb:MergingProperties.ElementMergingBehavior="None" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom">
+                        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" Name="gridControl1" SelectedItemChanged="gridControl1_SelectedItemChanged">
+                            <dxg:GridControl.Resources>
+                                <Style x:Key="customCellStyle"
+                                       BasedOn="{StaticResource {dxgt:GridRowThemeKey ResourceKey=CellStyle}}"
+                                       TargetType="dxg:CellContentPresenter">
+                                    <Setter Property="Foreground"
+                                            Value="{Binding Path=RowData.RowState, Converter={DataUtils:IntoToColorConverter}}"/>
+                                </Style>
+                                <Style x:Key="customRowStyle"
+                                       BasedOn="{StaticResource {dxgt:GridRowThemeKey ResourceKey=RowStyle}}"
+                                       TargetType="dxg:GridRowContent">
+                                    <Setter Property="Background" Value="{Binding Path=EvenRow, Converter={DataUtils:RowColorConverter}}" />
+                                </Style>
+                            </dxg:GridControl.Resources>
+                            <dxg:GridControl.View>
+                                <dxg:TableView NewItemRowPosition="Bottom" AllowPerPixelScrolling="True" Name="tableView1" ShowTotalSummary="False"  RowStyle="{StaticResource customRowStyle}" UseLightweightTemplates="None" ShowGroupPanel="False" />
+                            </dxg:GridControl.View>
+                        </dxg:GridControl>
+                    </dxdo:LayoutPanel>
+
+                    <dxdo:LayoutPanel  ShowCaption="False" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom" dxb:MergingProperties.AllowMerging="False" dxb:MergingProperties.ElementMergingBehavior="None">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <dxb:ToolBarControl Grid.Row="0" GlyphSize="Large" AllowQuickCustomization="False">
+                                    <dxb:BarButtonItem x:Name="btnRefresh" Hint="刷新(F5)" Content="刷新" BarItemDisplayMode="ContentAndGlyph" LargeGlyph="/UserMaintenance;component/Images/Refresh.png" ItemClick="btnRefresh_ItemClick" />
+                                    <dxb:BarButtonItem x:Name="btnClear" Hint="清除(F7)" Content="清除" BarItemDisplayMode="ContentAndGlyph" LargeGlyph="/UserMaintenance;component/Images/Clear.png" ItemClick="btnClear_ItemClick" />
+                                    <dxb:BarButtonItem x:Name="btnDelete" Hint="删除(Delete)" Content="删除" BarItemDisplayMode="ContentAndGlyph" LargeGlyph="/UserMaintenance;component/Images/Delete1.png"  ItemClick="btnDelete_ItemClick" />
+                                    <dxb:BarButtonItem x:Name="btUpdate" Hint="更新" Content="更新" BarItemDisplayMode="ContentAndGlyph" LargeGlyph="/UserMaintenance;component/Images/update.png" ItemClick="btUpdate_ItemClick" />
+                                    <dxb:BarButtonItem x:Name="btnSave" Hint="保存(F12)" Content="保存" BarItemDisplayMode="ContentAndGlyph" LargeGlyph="/UserMaintenance;component/Images/Save.png" ItemClick="btnSave_ItemClick" />
+                                </dxb:ToolBarControl>
+                            <dxdo:DockLayoutManager Name="dockLayoutManager2" Grid.Row="1" ClosedPanelsBarVisibility="Never">
+                                <dxdo:DockLayoutManager.LayoutRoot>
+                                    <dxdo:LayoutGroup Name="lgLayoutRoot" Caption="LayoutRoot" dxb:MergingProperties.AllowMerging="False" dxb:MergingProperties.ElementMergingBehavior="None" Orientation="Vertical">
+                                        <dxdo:DocumentGroup Name="tabbedGroup2" >
+                                            <dxdo:DocumentPanel Name="dpnormal" Caption="常规" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom">
+                                                <ScrollViewer Name="svMain" VerticalScrollBarVisibility="Auto">
+                                                    <WrapPanel Name="wpanle">
+                                                        <StackPanel Width="200" Orientation="Horizontal" Margin="10">
+                                                            <Label Width="60" Content="用户群组:"  />
+                                                            <TextBox Width="140" Name="ebUserGroupName" AcceptsReturn="True" />
+                                                        </StackPanel>
+                                                    </WrapPanel>
+                                                </ScrollViewer>
+                                            </dxdo:DocumentPanel>
+                                            <dxdo:DocumentPanel Name="dpActivity" Caption="系统功能" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom" >
+                                                <Grid Name="Grid9085" SizeChanged="Grid9085_SizeChanged">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <dxe:ListBoxEdit Grid.Row="0" Margin="0" Name="lbeActivity" EditValueChanged="lbeActivity_EditValueChanged">
+                                                        <dxe:ListBoxEdit.ItemsPanel>
+                                                            <ItemsPanelTemplate>
+                                                                <WrapPanel Orientation="Vertical" Height="{Binding ElementName=lbeActivity, Path=Height, Converter={DataUtils:SizeConvert}, ConverterParameter='-4'}"/>
+                                                            </ItemsPanelTemplate>
+                                                        </dxe:ListBoxEdit.ItemsPanel>
+                                                        <dxe:ListBoxEdit.StyleSettings>
+                                                            <dxe:CheckedListBoxEditStyleSettings />
+                                                        </dxe:ListBoxEdit.StyleSettings>
+                                                    </dxe:ListBoxEdit>
+                                                </Grid>
+                                            </dxdo:DocumentPanel>
+                                        </dxdo:DocumentGroup>
+                                    </dxdo:LayoutGroup>
+                                </dxdo:DockLayoutManager.LayoutRoot>
+                            </dxdo:DockLayoutManager>
+                        </Grid>
+                        </dxdo:LayoutPanel>
+                </dxdo:LayoutGroup>
+            </dxdo:DockLayoutManager.LayoutRoot>
+        </dxdo:DockLayoutManager>
+    </Grid>
+</UserControl>

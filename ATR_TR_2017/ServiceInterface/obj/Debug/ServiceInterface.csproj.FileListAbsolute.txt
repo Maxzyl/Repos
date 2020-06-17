@@ -1,0 +1,9 @@
+D:\项目\ATR_TR_2017\ServiceInterface\bin\Debug\ServiceInterface.dll.config
+D:\项目\ATR_TR_2017\ServiceInterface\bin\Debug\ServiceInterface.dll
+D:\项目\ATR_TR_2017\ServiceInterface\bin\Debug\ServiceInterface.pdb
+D:\项目\ATR_TR_2017\ServiceInterface\bin\Debug\LitJson.dll
+D:\项目\ATR_TR_2017\ServiceInterface\obj\Debug\ServiceInterface.dll
+D:\项目\ATR_TR_2017\ServiceInterface\obj\Debug\ServiceInterface.pdb
+D:\项目\ATR_TR_2017\ServiceInterface\obj\Debug\ServiceInterface.csprojAssemblyReference.cache
+D:\项目\ATR_TR_2017\ServiceInterface\obj\Debug\ServiceInterface.csproj.CoreCompileInputs.cache
+D:\项目\ATR_TR_2017\ServiceInterface\obj\Debug\ServiceInterface.csproj.CopyComplete

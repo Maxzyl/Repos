@@ -1,0 +1,14 @@
+D:\项目\ATE Output\SymtantLiences.dll.config
+D:\项目\ATE Output\SymtantLiences.dll
+D:\项目\ATE Output\SymtantLiences.pdb
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\Liences.baml
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\LoadLiences.baml
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\Liences.g.cs
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\LoadLiences.g.cs
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\SymtantLiences_MarkupCompile.cache
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\SymtantLiences.g.resources
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\SymtantLiences.dll
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\SymtantLiences.pdb
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\SymtantLiences.csprojAssemblyReference.cache
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\SymtantLiences.csproj.CoreCompileInputs.cache
+D:\项目\ATR_TR_2017\SymtantLiences\obj\Debug\SymtantLiences.csproj.CopyComplete

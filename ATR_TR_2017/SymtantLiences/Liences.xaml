@@ -1,0 +1,30 @@
+﻿<dx:DXWindow x:Class="SymtantLiences.Liences"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Icon="/SymtantLiences;component/images/TR3.ico"
+             d:DesignHeight="300" d:DesignWidth="300" Title="授权" Closing="DXWindow_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <dxb:ToolBarControl Grid.Row="0" GlyphSize="Large" AllowQuickCustomization="False" Name="toolBarControl">
+            <dxb:BarButtonItem x:Name="btnRefresh" Hint="刷新" BarItemDisplayMode="ContentAndGlyph"  Glyph="/SymtantLiences;component/Images/刷新.png"  ItemClick="btnRefresh_ItemClick" />
+            <!--<dxb:BarButtonItem x:Name="btnLiencse" Hint="申请Liencse" BarItemDisplayMode="ContentAndGlyph"  Glyph="/SymtantLiences;component/Images/LicenseLink.png" ItemClick="btnLiencse_ItemClick" IsVisible="False"/>-->
+            <dxb:BarButtonItem x:Name="btnExport" Hint="导出" BarItemDisplayMode="ContentAndGlyph"  Glyph="/SymtantLiences;component/Images/导出文件.png" ItemClick="btnExport_ItemClick" />
+            <dxb:BarButtonItem x:Name="btnImport" Hint="导入授权" BarItemDisplayMode="ContentAndGlyph"  Glyph="/SymtantLiences;component/Images/导入文件.png" ItemClick="btnImport_ItemClick" />
+        </dxb:ToolBarControl>
+
+        <dxg:GridControl Grid.Row="1" SelectionMode="Row" EnableSmartColumnsGeneration="True" Name="gridControl1" AutoGenerateColumns="AddNew">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True"  Name="tableView"  ShowTotalSummary="False" ShowGroupPanel="False" AllowEditing="False" AutoWidth="False" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</dx:DXWindow>

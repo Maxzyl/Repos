@@ -1,0 +1,9 @@
+﻿<Window x:Class="MeasurementUI.UC_Adv_ShowImage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="图片显示" Height="600" Width="600"
+        Background="LightGray" WindowStyle="SingleBorderWindow" ShowInTaskbar="False" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Image Name="imageShow" />
+    </Grid>
+</Window>

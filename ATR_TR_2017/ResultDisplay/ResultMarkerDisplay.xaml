@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="TestResultMarkerDip.ResultMarkerDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:dataUtils="clr-namespace:DataUtils;assembly=DataUtils"
+             xmlns:local="clr-namespace:TestResultMarkerDip"
+             d:DesignHeight="300" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border x:Name="bd" BorderThickness="0,0,0,1" BorderBrush="LightGray"   Padding="{TemplateBinding Padding}" >
+                            <GridViewRowPresenter  Margin="0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Trigger.Setters>
+                                    <Setter TargetName="bd" Property="Background" Value="LightGray">
+                                    </Setter>
+                                </Trigger.Setters>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Name="grid">
+        <ListView Name="listView" SelectedIndex="{Binding SelectedlistViewIndex}" SelectionMode="Single"  
+                  ItemContainerStyle="{StaticResource ListViewItemStyle}">
+            <ListView.ItemsSource>
+                <MultiBinding Converter="{local:ListViewItemSourceConverter}">
+                    <Binding Path="XYMarkerDisplist"/>
+                    <Binding Path="SelectedSpecIndex"/>
+                </MultiBinding>
+            </ListView.ItemsSource>
+            <ListView.View>
+                <GridView x:Name="gridView" >
+                    <GridViewColumn Header="名称" DisplayMemberBinding="{Binding Path=UserDefName}"  Width="100"/>
+                    <GridViewColumn Header="端口" DisplayMemberBinding="{Binding Path=PortName}" Width="100"/>
+                    <!--<GridViewColumn Header="测试条件" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Freq,Converter={dataUtils:FreqStringConverter}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>-->
+                    <GridViewColumn Header="测试条件" Width="100" DisplayMemberBinding="{Binding Path=XDescription}"/>
+                    <GridViewColumn Header="门限描述" Width="100" DisplayMemberBinding="{Binding Path=LimitDescription}"/>
+                    <GridViewColumn Header="结果" DisplayMemberBinding="{Binding Path=TestResult,Converter={local:DataDisplayDigitalConverter}}" Width="200" >
+                    </GridViewColumn>
+                    <GridViewColumn Header="PASS/FAIL"  Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=PassFail,Converter={local:TestResultConverter2}}" Foreground="{Binding Path=PassFail,Converter={local:PassFailConverter}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>     
+    </Grid>
+</UserControl>

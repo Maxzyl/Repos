@@ -1,0 +1,7 @@
+D:\项目\ATE Output\SymtCalc.dll
+D:\项目\ATE Output\SymtCalc.pdb
+D:\项目\ATR_TR_2017\SymtCalc\obj\Debug\SymtCalc.csprojAssemblyReference.cache
+D:\项目\ATR_TR_2017\SymtCalc\obj\Debug\SymtCalc.csproj.CoreCompileInputs.cache
+D:\项目\ATR_TR_2017\SymtCalc\obj\Debug\SymtCalc.dll
+D:\项目\ATR_TR_2017\SymtCalc\obj\Debug\SymtCalc.pdb
+D:\项目\ATR_TR_2017\SymtCalc\obj\Debug\SymtCalc.csproj.CopyComplete

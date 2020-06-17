@@ -1,0 +1,6 @@
+D:\项目\ATE Output\SystemFunction.dll
+D:\项目\ATE Output\SystemFunction.pdb
+D:\项目\ATR_TR_2017\SystemFunction\obj\Debug\SystemFunction.dll
+D:\项目\ATR_TR_2017\SystemFunction\obj\Debug\SystemFunction.pdb
+D:\项目\ATR_TR_2017\SystemFunction\obj\Debug\SystemFunction.csprojAssemblyReference.cache
+D:\项目\ATR_TR_2017\SystemFunction\obj\Debug\SystemFunction.csproj.CoreCompileInputs.cache

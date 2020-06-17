@@ -1,0 +1,302 @@
+﻿<UserControl xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking" 
+             x:Class="MeasurementUI.UC_Adv_XYTestMarker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:dataUtils="clr-namespace:DataUtils;assembly=DataUtils"
+             xmlns:l="clr-namespace:MeasurementUI"
+             dxb:BarNameScope.IsScopeOwner="True"
+             xmlns:local="clr-namespace:MeasurementUI"
+             xmlns:vm="clr-namespace:ViewModelBaseLib;assembly=ViewModelBaseLib"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+            
+             d:DesignHeight="350" d:DesignWidth="1000" MinHeight="300">
+    <UserControl.Resources>
+        <dataUtils:FreqStringConverter x:Key="freqStringConverter"/>
+        <Style TargetType="CheckBox">
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="Margin" Value="5,10,5,0"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
+        <Style TargetType="dxe:TextEdit">
+            <Setter Property="Margin" Value="0,3,5,3"></Setter>
+            <Setter Property="Height" Value="26"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily"  Value="微软雅黑"></Setter>
+            <Setter Property="Width" Value="130"></Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Width" Value="78"></Setter>
+            <Setter Property="Margin" Value="40,3,5,0"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        </Style>
+        <Style TargetType="dxe:ComboBoxEdit">
+            <Setter Property="Height" Value="26"></Setter>
+            <Setter Property="Width" Value="130"></Setter>
+            <Setter Property="Margin" Value="0,3,5,3"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TabControl}">
+            <Setter Property="Background" Value="#F4F4F4"></Setter>
+        </Style>
+        <ControlTemplate TargetType="{x:Type Button}" x:Key="btnsyle">
+            <Grid>
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#DDE8F6"></SolidColorBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <Border BorderBrush="Black" BorderThickness="2">
+        <TabControl x:Name="tab" SelectionChanged="tab_SelectionChanged" >
+            <TabControl.Items>
+                <TabItem Header="基本设置"  Height="26" HorizontalAlignment="Center" Width="90">
+                    <ScrollViewer  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer.Content>
+                            <StackPanel Orientation="Vertical"  Margin="0,5,0,10" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Type" Margin="10,5"></Label>
+                                    <dxe:ComboBoxEdit Name="cmbType" FontSize="14" ItemsSource="{Binding MarkerTypeList}" SelectedItem="{Binding TypeName}" SelectedIndexChanged ="cmbType_SelectedIndexChanged"></dxe:ComboBoxEdit>
+                                    <Label Margin="0,3"/>
+                                    <Label Content="端口描述"/>
+                                    <dxe:TextEdit EditValue="{Binding TestConfigDesciption}"/>
+                                    <!--<Button Width="100" Name="btnEdit" Height="28" Margin="120,6" Content="公式编辑"/>-->
+                                    <Label Margin="0,3"/>
+                                    <Label Content="自定义名称"/>
+                                    <dxe:TextEdit EditValue="{Binding UserDefName}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                        <Label Content="起始频率" Margin="10,3"/>
+                                        <dxe:TextEdit Name="txtStartFreq" EditValue="{Binding Start,Converter={StaticResource freqStringConverter}}"/>
+                                        <Label Content="Hz"  Margin="0,3"/>
+                                        <Label Content="截止频率"/>
+                                      <dxe:TextEdit Name="txtStopFreq" EditValue="{Binding Stop,Converter={StaticResource freqStringConverter}}"/>
+                                    <Label Content="Hz"  Margin="0,3"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="X最小指标" Margin="10,3"/>
+                                    <dxe:TextEdit Name="txtXMin" EditValue="{Binding XMin}"/>
+                                    <Label   Margin="0,3"/>
+                                    <Label Content="X最大指标"/>
+                                    <dxe:TextEdit Name="txtXMax" EditValue="{Binding XMax}"/>
+                                    <!--<Label  Margin="0,3"/>
+                                    <CheckBox Content="X判定" IsChecked="{Binding XValueJudgeEnable}"/>-->
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Y最小指标" Margin="10,3"/>
+                                    <dxe:TextEdit Name="txtYMin" EditValue="{Binding YMin}"/>
+                                    <Label  Margin="0,3"/>
+                                    <Label Content="Y最大指标"/>
+                                    <dxe:TextEdit Name="txtYMax" EditValue="{Binding YMax }"/>
+                                    <!--<Label  Margin="0,3"/>
+                                    <CheckBox Content="Y判定" IsChecked="{Binding YValueJudgeEnable}"/>-->
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="变量名称" Margin="10,3"/>
+                                    <dxe:TextEdit Name="txtVarName" EditValue="{Binding VarName}"/>
+                                    
+                                    <Label  Margin="0,3"/>
+                                    <Label Content="参数描述" />
+                                    <dxe:TextEdit EditValue="{Binding YDescription}"/>
+                                    <Label  Margin="0,3"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                 
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="测试条件" Margin="10,3"/>
+                                    <dxe:TextEdit EditValue="{Binding XDescription}"/>
+                                    <Label  Margin="0,3"/>
+                                    <Label Content="门限描述" />
+                                    <dxe:TextEdit EditValue="{Binding LimitDescription}"/>
+                                    <Label  Margin="0,3"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding IsTest}" Content="Marker使能" Margin="10,10,10,3"/>
+                                    <CheckBox IsChecked="{Binding FunctionEnable}" Content="公式使能" Margin="40,10,5,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </ScrollViewer.Content>
+                    </ScrollViewer>
+                </TabItem>
+
+                <TabItem x:Name="Tabitem" Header="公式编辑"  Height="26" Visibility="Hidden">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"  />
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <WrapPanel HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.ColumnSpan="2">
+                                <Image VerticalAlignment="Center" ToolTip="函数搜索"  Margin="4,0,0,0" Source="Images/search.png" Width="16" Height="16"/>
+                                <TextBox Width="200" ToolTip="函数搜索" x:Name="txtTypeSearch" Margin="4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="txtTypeSearch_TextChanged"/>
+                            </WrapPanel>
+
+                            <DockPanel MinHeight="0" Height="100"  Grid.Row="1">
+                                <ScrollViewer  BorderThickness="1" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                                    <TreeView  x:Name="tvFuncList" BorderThickness="0" Margin="4,0,0,0" MouseDoubleClick="tvFuncList_MouseDoubleClick" >
+                                        <TreeView.ItemTemplate>
+                                            <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <StackPanel.ToolTip>
+                                                        <TextBlock VerticalAlignment="Center" Text="{Binding name}" TextWrapping="Wrap"  FontSize="14"/>
+                                                    </StackPanel.ToolTip>
+                                                    <TextBlock VerticalAlignment="Center" Text="{Binding funcName}"/>
+                                                </StackPanel>
+                                            </HierarchicalDataTemplate>
+                                        </TreeView.ItemTemplate>
+                                    </TreeView>
+                                </ScrollViewer>
+                            </DockPanel>
+                        </Grid>
+
+                        <GridSplitter Grid.RowSpan="2" Background="Transparent" Grid.Column="1"   HorizontalAlignment="Left" Width="9" />
+
+                        <Grid Margin="4,0,0,0" Grid.Column="1" Grid.RowSpan="2">
+                            
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"  />
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                <Image VerticalAlignment="Center" ToolTip="变量搜索" Margin="4,0,0,0" Source="Images/search.png" Width="16" Height="16"/>
+                                <TextBox Width="200" ToolTip="变量搜索" x:Name="txtSearch" Margin="4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </WrapPanel>
+
+                            <ScrollViewer Grid.Row="1" BorderThickness="1" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" Grid.ColumnSpan="2">
+
+                                <TreeView Grid.Row="3" Name="treeView" ScrollViewer.VerticalScrollBarVisibility="Auto" AllowDrop="True">
+                                    <TreeView.Items>
+                                        <TreeViewItem Name="treeItem"  Header="{Binding Path=DisplayName}" IsExpanded="True" ItemsSource="{Binding Path=FilteredManualConnList,UpdateSourceTrigger=PropertyChanged}" >
+                                            <TreeViewItem.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Source="/MeasurementUI;component/Images/文件 (5).png" Height="20" Width="20" Margin="3"/>
+                                                        <TextBlock Text="{Binding ElementName=treeItem,Path=Header,Converter={local:TreeViewHeaderConverter}}" VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </TreeViewItem.HeaderTemplate>
+                                        </TreeViewItem>
+                                    </TreeView.Items>
+                                    <TreeView.Resources>
+                                        <HierarchicalDataTemplate  DataType="{x:Type vm:ManualConnectionVM}" ItemsSource="{Binding Path=TestStepList}" >
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="/MeasurementUI;component/Images/连接 (2).png" Height="18" Width="18" Margin="3"/>
+                                                <TextBlock Text="{Binding DisplayName}" VerticalAlignment="Center"/>
+                                                <!--<TextBox x:Name="reNameText" Text="{Binding Path=DisplayName,Mode=TwoWay}" VerticalAlignment="Center"  Width="Auto" Visibility="Collapsed" LostFocus="reNameText_LostFocus" KeyDown="reNameText_KeyDown"/>-->
+                                            </StackPanel>
+                                        </HierarchicalDataTemplate>
+                                        <HierarchicalDataTemplate DataType="{x:Type vm:TestStepVM}" ItemsSource="{Binding Path=TestTraceList}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="/MeasurementUI;component/Images/P.png" Height="18" Width="18" Margin="3"/>
+                                                <TextBlock Text="{Binding DisplayName}" FontSize="12" VerticalAlignment="Center"/>
+                                                <TextBlock Margin="15,0,0,0" Text="{Binding ConfigName}" FontSize="12" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </HierarchicalDataTemplate>
+                                        <HierarchicalDataTemplate DataType="{x:Type vm:TestTraceVM}" ItemsSource="{Binding Path=MarkerList}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="/MeasurementUI;component/Images/T.png" VerticalAlignment="Center" Height="18" Width="18" Margin="3"/>
+                                                <TextBlock Text="{Binding DisplayName}" FontSize="12" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </HierarchicalDataTemplate>
+                                        <HierarchicalDataTemplate DataType="{x:Type vm:TestMarkerVM}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="/MeasurementUI;component/Images/M.png" Height="18" Width="18" Margin="3"/>
+                                                <TextBlock Text="{Binding DisplayName}" FontSize="12" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </HierarchicalDataTemplate>
+                                    </TreeView.Resources>
+                                    <TreeView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type TreeViewItem}">
+                                            <Setter Property="IsExpanded" Value="True"/>
+                                        </Style>
+                                    </TreeView.ItemContainerStyle>
+                                </TreeView>
+
+                                <!--<TreeView  Grid.Row="1"  MinHeight="150" x:Name="tvParam" BorderThickness="0" Margin="4,0,0,0" MouseDoubleClick="tvParam_MouseDoubleClick" >
+                                    <TreeView.ItemTemplate>
+                                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock VerticalAlignment="Center" Text="{Binding paramName}"/>
+                                            </StackPanel>
+                                        </HierarchicalDataTemplate>
+                                    </TreeView.ItemTemplate>
+                                </TreeView>-->
+                            </ScrollViewer>
+                        </Grid>
+
+                        <!--<GridSplitter Grid.Row="1" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Top"  Height="10"  Grid.ColumnSpan="1" />-->
+
+                        <DockPanel Grid.Row="1" Grid.Column="0">
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"  />
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <WrapPanel VerticalAlignment="Bottom">
+                                    <TextBlock Text="表达式:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <!--<Button Content="计算" Click="Button_Click"></Button>-->
+                                </WrapPanel>
+                                <TextBox VerticalAlignment="Top" AcceptsReturn="True" Height="100" Name="txtExpress" Grid.Row="1" TextChanged="txtExpress_TextChanged"></TextBox>
+                            </Grid>
+                        </DockPanel>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="运算函数"  Height="26" Visibility="Hidden">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <DockPanel Height="Auto" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">
+                            <dxg:GridControl Height="300" x:Name="gridControl1" AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" SelectedItemChanged="gridControl1_SelectedItemChanged">
+                                <dxg:GridControl.View>
+                                    <dxg:TableView NewItemRowPosition="Bottom" AllowPerPixelScrolling="True" Name="tableView1" ShowTotalSummary="False"  UseLightweightTemplates="None" ShowGroupPanel="False" />
+                                </dxg:GridControl.View>
+                            </dxg:GridControl>
+                        </DockPanel>
+
+                        <dxb:ToolBarControl Grid.Column="0" Grid.Row="0" GlyphSize="Large" AllowQuickCustomization="False" Name="toolBarControl">
+                            <dxb:BarButtonItem x:Name="btnClear" BarItemDisplayMode="ContentAndGlyph" Hint="清除" Content="清除" Glyph="/MeasurementUI;component/Images/Clear.png" ItemClick="btnClear_ItemClick" />
+                            <dxb:BarButtonItem x:Name="btnRefresh" BarItemDisplayMode="ContentAndGlyph" Hint="刷新" Content="刷新" Glyph="/MeasurementUI;component/Images/Refresh.png" ItemClick="btnRefresh_ItemClick" />
+                            <dxb:BarButtonItem x:Name="btnDelete" BarItemDisplayMode="ContentAndGlyph" Hint="删除" Content="删除" Glyph="/MeasurementUI;component/Images/删除.png" ItemClick="btnDelete_ItemClick" />
+                            <dxb:BarButtonItem x:Name="btnSave" BarItemDisplayMode="ContentAndGlyph" Hint="保存" Content="保存" Glyph="/MeasurementUI;component/Images/保存.png" ItemClick="btnSave_ItemClick" />
+                        </dxb:ToolBarControl>
+
+                        <GridSplitter Grid.RowSpan="2" Background="Transparent" Grid.Column="1"   HorizontalAlignment="Left" Width="9" />
+                        
+                        <DockPanel Margin="4,0,0,0" Grid.Column="1" Grid.RowSpan="2" Height="300">
+                            <ScrollViewer VerticalAlignment="Top" Height="300" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                <TextBox Name="txtContent" AcceptsReturn="True"/>
+                            </ScrollViewer>
+                        </DockPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
+    </Border>
+</UserControl>

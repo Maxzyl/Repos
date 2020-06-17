@@ -1,0 +1,408 @@
+﻿<UserControl xmlns:SymtChartLib="clr-namespace:SymtChartLib;assembly=SymtChartLib"
+             x:Class="MeasurementUI.ResultDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:dataUtils="clr-namespace:DataUtils;assembly=DataUtils"
+             xmlns:vm="clr-namespace:ViewModelBaseLib;assembly=ViewModelBaseLib"
+             xmlns:local="clr-namespace:MeasurementUI"
+             dxb:BarNameScope.IsScopeOwner="True"
+             xmlns:dxdb="http://schemas.devexpress.com/winfx/2008/xaml/demobase"
+             xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:dxet="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys"
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar"
+             xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+             xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"         
+             d:DesignHeight="300" d:DesignWidth="600" Unloaded="DockingDemoModule_Unloaded">
+
+    <UserControl.Resources>
+        <vm:ViewModelLocator x:Key="vm"></vm:ViewModelLocator>
+        <HierarchicalDataTemplate x:Key="mcTemplate" ItemsSource="{Binding SubTreeNodeList}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/MeasurementUI;component/Images/连接 (2).png" Height="18" Width="18" Margin="3"/>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" FontSize="14"/>
+                <Image HorizontalAlignment="Center"   Width="18" Height="18" Stretch="Fill" Source="{Binding Path=PassFail,Converter={local:ConnectImageConverter}}" Margin="5,0"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate  x:Key="loopTemplate" ItemsSource="{Binding SubTreeNodeList}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/MeasurementUI;component/Images/L.png" Height="18" Width="18" Margin="3"/>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" FontSize="14"/>               
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="stepTemplate" ItemsSource="{Binding SubTreeNodeList}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/MeasurementUI;component/Images/S.png" Height="18" Width="18" Margin="3"/>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" FontSize='14'/>
+                <Image HorizontalAlignment="Center"  Width="18" Height="18"  Stretch="Fill" Source="{Binding Path=PassFail,Converter={local:ConnectImageConverter}}" Margin="5,0"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate  x:Key="traceTemplate" ItemsSource="{Binding SubTreeNodeList}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/MeasurementUI;component/Images/T.png" VerticalAlignment="Center" Height="18" Width="18" Margin="3"/>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" FontSize="14"/>
+                <Image HorizontalAlignment="Center" Width="18" Height="18" Stretch="Fill" Source="{Binding Path=PassFail,Converter={local:ConnectImageConverter}}" Margin="5,0"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="pointTemplate" ItemsSource="{Binding SubTreeNodeList}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/MeasurementUI;component/Images/P.png" VerticalAlignment="Center" Height="18" Width="18" Margin="3"/>
+                <!--<TextBlock VerticalAlignment="Center" Text="{Binding Index}" FontSize="14"/>-->
+                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" FontSize="14"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="boolTemplate" ItemsSource="{Binding SubTreeNodeList}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/MeasurementUI;component/Images/B.png" VerticalAlignment="Center" Height="18" Width="18" Margin="3"/>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" FontSize="14"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate  x:Key="markerTemplate" ItemsSource="{Binding SubTreeNodeList}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" FontSize="14"/>
+                <Image HorizontalAlignment="Center" Width="18" Height="18" Stretch="Fill" Source="{Binding Path=PassFail,Converter={local:ConnectImageConverter}}" Margin="5,0"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <local:TreeViewDataTemplateSelector x:Key="Mytemplate"></local:TreeViewDataTemplateSelector>
+        <dataUtils:FreqStringConverter x:Key="freqStringConverter"/>
+        <ControlTemplate x:Key="pauseTemplate1" TargetType="{x:Type Button}">
+            <ContentControl>
+                <Grid>
+                    <Rectangle>
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/MeasurementUI;component/Images/暂停.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </ContentControl>
+        </ControlTemplate>
+        <ControlTemplate x:Key="pauseTemplate2" TargetType="{x:Type Button}">
+            <ContentControl>
+                <Grid>
+                    <Rectangle>
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/MeasurementUI;component/Images/开始 (1).png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+            </ContentControl>
+        </ControlTemplate>
+        <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border x:Name="bd" BorderThickness="0,0,0,1" BorderBrush="LightGray"   Padding="{TemplateBinding Padding}" >
+                            <GridViewRowPresenter   
+                                                  Margin="0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Trigger.Setters>
+                                    <Setter TargetName="bd" Property="Background" Value="LightGray">
+                                    </Setter>
+                                </Trigger.Setters>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>           
+        </Style>
+        <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
+            <VisualBrush.Visual>
+                <TextBlock FontStyle="Italic" Text="Search"/>
+            </VisualBrush.Visual>
+        </VisualBrush>
+        <Style TargetType="{x:Type TextBox}" x:Key="txtBoxStyle">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="{x:Null}">
+                    <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="">
+                    <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <DataTemplate x:Key="rowIndicatorContentTemplate">
+            <StackPanel VerticalAlignment="Stretch" 
+                        HorizontalAlignment="Stretch">
+                <TextBlock  Text="{Binding Path=RowHandle.Value,Converter={local:RowHandleConverter}}"
+                           TextAlignment="Center"
+                           Foreground="Black"/>
+            </StackPanel>
+        </DataTemplate>
+        <ControlTemplate TargetType="{x:Type Button}" x:Key="btnStyle1">
+            <Grid>
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/MeasurementUI;component/Images/放大镜.png"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="dx:ThemeManager.ThemeName" Value="None"/>
+        </Style>
+        <Style TargetType="Button" x:Key="listBoxButton">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Chrome" BorderBrush="Gray" BorderThickness="1" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style >
+        <Style TargetType="{x:Type TreeViewItem}">
+            <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+            <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontSize" Value="14"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>  
+    <!--<dxdb:DemoModuleControl SupressGroupFramePaddingInOptions="False">-->
+    <Grid Name="grid" DataContext="{Binding Source={StaticResource vm},Path=CurrentTestPlanVm}">
+            <!--<dxb:BarManager Grid.Row="1" Grid.ColumnSpan="2">-->
+            <dxdo:DockLayoutManager Grid.Row="1" Grid.ColumnSpan="2" x:Name="dockLayoutManager1" dxc:ThemeManager.ThemeName="VS2010"  ClosedPanelsBarVisibility="Auto"  DockOperationCompleted="dockLayoutManager1_DockOperationCompleted">
+                    <dxdo:LayoutGroup Orientation="Horizontal" >
+                        <dxdo:LayoutGroup ItemWidth="*">
+                            <dxdo:DocumentGroup Name="documentGroup2" Visibility="Visible">
+                                <dxdo:DocumentPanel Name="inputDocumentPanel" Caption="输入" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom" >
+                                    <Grid Name="inputGrid" Background="White">
+                                    <!--<Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="备注信息"  Margin="5,6"/>
+                                            <dxe:TextEdit  Margin="0,5,5,5"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  Grid.Column="1"  MinHeight="28" Name="txtRemark"/>
+                                        </Grid>-->
+                                        <StackPanel Name="remarksPanel" Orientation="Vertical">
+                                           
+                                        </StackPanel>
+                                    </Grid>
+                                </dxdo:DocumentPanel>
+                                <dxdo:DocumentPanel Name="flowDocumentPanel" Caption="流程" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom" >
+                                    <Grid Background="White">
+                                        <wfi:WindowsFormsHost>
+                                            <wf:TabControl x:Name="tabcontrol">
+                                            </wf:TabControl>
+                                        </wfi:WindowsFormsHost>
+                                    </Grid>
+                                </dxdo:DocumentPanel>
+                            </dxdo:DocumentGroup>
+ 
+                        </dxdo:LayoutGroup>
+                        <dxdo:LayoutGroup ItemWidth="5*" Orientation="Vertical">
+                        <dxdo:DocumentGroup Name="documentGroup1" ItemHeight="2.5*">
+                            <dxdo:DocumentPanel Caption="Table2" Name="documentPanle2" ShowCloseButton="True"  AllowClose="True" dxdo:AutoHideGroup.AutoHideType="Bottom" >
+                                <dxg:GridControl AutoGenerateColumns="AddNew" Name="loopGridControl" CustomColumnDisplayText="loopGridControl_CustomColumnDisplayText">
+                                    <dxg:GridControl.View>
+                                        <dxg:TableView AllowPerPixelScrolling="True"  ShowTotalSummary="False" ShowGroupPanel="False"/>
+                                    </dxg:GridControl.View>
+                                </dxg:GridControl>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel Caption="Chart2" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom" Name="dpChart2">
+                                <Grid>
+                                    <SymtChartLib:WindowChart Name="InterfaceChart2"/>
+                                </Grid>
+                                </dxdo:DocumentPanel>
+                            <!--<dxdo:DocumentPanel Caption="数据总览" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom">
+                                <dxg:GridControl AutoGenerateColumns="AddNew" Name="DataOverViewGridControl">
+                                    --><!--<dxg:GridControl.Columns>
+                                        <dxg:GridColumn FieldName="全选" >
+                                            
+                                        </dxg:GridColumn>
+                                    </dxg:GridControl.Columns>--><!--
+                                    <dxg:GridControl.View>
+                                        <dxg:TableView AllowPerPixelScrolling="True"  ShowTotalSummary="False" ShowGroupPanel="False"/>
+                                    </dxg:GridControl.View>
+                                </dxg:GridControl>
+                            </dxdo:DocumentPanel>-->
+                            </dxdo:DocumentGroup>
+                            <dxdo:DocumentGroup Name="documentGroup3"  >
+                                <dxdo:DocumentPanel Caption="PASS/FAIL" Background="White" MinHeight="100" MaxHeight="200"  Name="passFailDocumentPanel" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom" >
+                                    <Grid Background="White" Name="passFailGrid" >
+                                        <ListBox Grid.Column="0" x:Name="listBoxStep" 
+                                           ItemsSource="{Binding TestSpecs}"  MinHeight="90">
+                                            <ListBox.Template>
+                                                <ControlTemplate TargetType="{x:Type ListBox}">
+                                                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" >
+                                                        <WrapPanel Orientation="Horizontal" IsItemsHost="True">
+                                                        </WrapPanel>
+                                                    </ScrollViewer>
+                                                </ControlTemplate>  
+                                            </ListBox.Template> 
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Label FontSize="20" Width="100" Height="100"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{Binding Path=PassFail,Converter={local:ManualConnForColorConverter}}"  Background="{Binding Path=PassFail,Converter={local:ManualConnColorConverter2}}" Content="{Binding Path=SpecName}"/>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </Grid>
+                                    
+                                    
+                                    
+                                </dxdo:DocumentPanel>
+                                <!--<dxdo:DocumentPanel Caption="History" Visibility="Collapsed" Name="historyDocumentPanel" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom" >
+
+                                </dxdo:DocumentPanel>-->
+                            </dxdo:DocumentGroup>
+                            <dxdo:DocumentGroup Name="documentGroup4" ItemHeight="*">
+                            <dxdo:DocumentPanel Name="documentPanel1" Caption="条码输入" ShowCloseButton="False">
+                                <Grid Background="White">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="120"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0" Source="/MeasurementUI;component/Images/barcode.png" Width="140" Height="90" Margin="0"></Image>
+                                    <!--<TextBox Grid.Column="1" Text="{Binding Path=SN}" Height="55"  FontSize="36" TextAlignment="Left"  VerticalContentAlignment="Center"  Name="txtInputBarCode" FontFamily="微软雅黑"  KeyDown="txtInputBarCode_KeyDown" ></TextBox>-->
+                                <ContentControl Name="contentControl" Grid.Column="1">
+
+                                </ContentControl>
+                                <Button  Grid.Column="2" Height="55" Width="112" Margin="5,0,0,0" Name="Start" Click="Start_Click">
+                                        <Image Source="/MeasurementUI;component/Images/go.png" Width="40" Height="40"/>
+                                    </Button>
+                                </Grid>
+                            </dxdo:DocumentPanel>
+                            <dxdo:DocumentPanel Name="documentPanel2" Caption="非向导测试" ShowCloseButton="False" dxdo:AutoHideGroup.AutoHideType="Bottom" Visibility="Collapsed" >
+                                <Grid Background="White">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ListBox Grid.Column="0" x:Name="listBoxStep2" 
+                                         ItemsSource="{Binding ManualConnList}" MinHeight="90"  SelectionMode="Single" KeyDown="listBoxStep2_KeyDown">
+                                        <ListBox.Template>
+                                            <ControlTemplate TargetType="{x:Type ListBox}">
+                                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" >
+                                                    <WrapPanel Orientation="Horizontal" IsItemsHost="True"></WrapPanel>
+                                                </ScrollViewer>
+                                            </ControlTemplate>
+                                        </ListBox.Template>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                            <Button IsEnabled="{Binding Path=IsEnabled}"  MinHeight="30" MinWidth="120" Style="{StaticResource listBoxButton}" 
+                                                             Content="{Binding Path=DisplayName}" Tag="{Binding Path=DisplayName}" 
+                                                             Foreground="{Binding Path=PassFail,Converter={local:ManualConnForColorConverter}}" 
+                                                             Background="{Binding Path=PassFail,Converter={local:ManualConnColorConverter}}"  
+                                                             Name="btnConnect" Click="btnConnect_Click" >
+                                                </Button>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+                                        <Button Height="55" Width="58" Visibility="Collapsed"  Name="btnPause" Click="btnPause_Click">
+                                            <Image Width="33" Height="33" Stretch="Fill" Source="/MeasurementUI;component/Images/暂停.png"/>
+                                        </Button>
+                                        <Button Height="55" Width="58" Margin="1,0,0,0"  Name="btnStop" Click="btnStop_Click">
+                                            <Image Width="33" Height="33" Stretch="Fill" Source="/MeasurementUI;component/Images/stop.png"/>
+                                        </Button>
+                                        <Button Visibility="Collapsed" Height="30" Width="30"  Name="btnBack" Click="btnBack_Click">
+                                            <Image Width="18" Height="18" Source="/MeasurementUI;component/Images/返回.png"/>
+                                        </Button>
+
+                                        <Button Height="55" Width="58" Margin="1,0,0,0" Name="btnFinish" Click="btnFinish_Click" >
+                                            <Image Stretch="Fill" Source="/MeasurementUI;component/Images/confirm.png"/>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </dxdo:DocumentPanel>
+                        </dxdo:DocumentGroup>
+                        </dxdo:LayoutGroup>
+                        <dxdo:LayoutPanel ItemWidth="*" Caption="导航" Name="navigateDocumentPanel" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="19*"/>
+                                    <ColumnDefinition Width="21*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <!--<StackPanel Grid.Row="0" Orientation="Horizontal">
+                                    <Label Content="测试指标"  Margin="5,6"/>
+                                    <dxe:ComboBoxEdit Width="160" Margin="0,5" MinHeight="28" x:Name="combTestSpec" ItemsSource="{Binding TestSpecs}"  SelectedIndex="{Binding SelectedSpecIndex}"/>
+                                </StackPanel>-->
+                                <Grid Grid.Row="0" Background="White" Grid.ColumnSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Content="测试指标"  Margin="5,6"/>
+                                    <dxe:ComboBoxEdit  Margin="0,5" Grid.Column="1"  MinHeight="28" x:Name="combTestSpec" ItemsSource="{Binding TestSpecs}" DisplayMember="SpecName" SelectedIndexChanged="combTestSpec_SelectedIndexChanged" SelectedIndex="{Binding SelectedSpecIndex}"/>
+                                </Grid>
+                                <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Grid.ColumnSpan="2">
+                                    <Grid Background="White">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30*"/>
+                                            <ColumnDefinition Width="19*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Background="White" Name="txtBoxSearch" TextWrapping="NoWrap" Margin="0"  FontSize="16" Style="{StaticResource txtBoxStyle}" BorderThickness="0" KeyDown="txtBoxSearch_KeyDown" Grid.ColumnSpan="2" ></TextBox>
+                                        <Button Grid.Column="2" Template="{StaticResource btnStyle1}" HorizontalAlignment="Right" Height="25" Width="25" Margin="0,2,2,0" Name="btnSearch" Click="btnSearch_Click"/>
+                                    </Grid>
+                                </Border>
+                            <TreeView Name="treeView"  TreeViewItem.Selected="treeView_Selected" MinWidth="260" Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"  Margin="0,0,0,-5" Grid.ColumnSpan="2">
+                                <TreeView.Items>
+                                    <TreeViewItem Name="treeItem"  Header="{Binding Path=DisplayName}" ItemTemplateSelector="{StaticResource Mytemplate}" IsExpanded="True" ItemsSource="{Binding Path=ManualConnList,UpdateSourceTrigger=PropertyChanged}" >
+                                        <TreeViewItem.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image Source="/MeasurementUI;component/Images/文件 (5).png" Height="20" Width="20" Margin="3"/>
+                                                    <TextBlock Text="{Binding ElementName=treeItem,Path=Header,Converter={local:TreeViewHeaderConverter}}" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </TreeViewItem.HeaderTemplate>
+                                    </TreeViewItem>
+                                </TreeView.Items>
+                                <TreeView.ItemContainerStyle>
+                                    <Style TargetType="{x:Type TreeViewItem}">
+                                        <Setter Property="IsExpanded" Value="True"/>
+                                    </Style>
+                                </TreeView.ItemContainerStyle>
+                                <TreeView.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="全部展开" Name="expandAllItem" Click="expandAllItem_Click"/>
+                                            <MenuItem Header="全部收起" Name="UnexpandAllItem" Click="UnexpandAllItem_Click"/>
+                                            <MenuItem Header="添加到图形" Name="IsAddToChart" Click="IsAddToChart_Click"/>
+                                    </ContextMenu>
+                                    </TreeView.ContextMenu>
+                                </TreeView>
+                            </Grid>
+                        </dxdo:LayoutPanel>
+                    </dxdo:LayoutGroup>
+                </dxdo:DockLayoutManager>
+            <!--</dxb:BarManager>-->
+            <Grid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="布局" Click="MenuItem_Click"/>
+                </ContextMenu>
+            </Grid.ContextMenu>
+        </Grid>
+    <!--</dxdb:DemoModuleControl>-->
+</UserControl>

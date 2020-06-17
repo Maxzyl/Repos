@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="MeasurementUI.UC_XYTestMarker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:dataUtils="clr-namespace:DataUtils;assembly=DataUtils"
+             xmlns:vm="clr-namespace:ViewModelBaseLib;assembly=ViewModelBaseLib"
+             xmlns:l="clr-namespace:MeasurementUI"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             d:DesignHeight="300" d:DesignWidth="1000" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <vm:TableRowColorConverter x:Key="rc"/>
+        <Style x:Key="cellStyle" TargetType="{x:Type dxg:LightweightCellEditor}">
+            <Setter Property="Background" Value="{Binding Path=RowData.Row.RowColorIndicator,Converter={StaticResource rc}}"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+           <dxg:GridControl Grid.RowSpan="2"  Grid.Column="1"  Name="gridControl" ItemsSource="{Binding GridVMlist}">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="ConnName" Header="连接" Width="Auto" AllowBestFit="True"  AllowCellMerge="True"/>
+                <!--<dxg:GridColumn FieldName="DisplayName" Header="Type"/>-->
+                <!--<dxg:GridColumn FieldName="MeasInfoDisplayName" Header="测试设备" Width="Auto"/>-->
+                <dxg:GridColumn FieldName="TypeName" Header="类型">
+                    <!--<dxg:GridColumn.EditSettings>
+                        <dxe:ComboBoxEditSettings ItemsSource="{Binding Path=Data.MarkerTypeList}"/>
+                    </dxg:GridColumn.EditSettings>-->
+                    <dxg:GridColumn.CellTemplate>
+                        <DataTemplate>
+                            <dxe:ComboBoxEdit AutoComplete="True" ItemsSource="{Binding Path=Data.MarkerTypeList}" 
+                                              EditValue="{Binding Data.TypeName, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellTemplate>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="UserDefName" Header="自定义名称"/>
+                <dxg:GridColumn FieldName="TestConfigDesciption" Header="端口描述"/>
+                <dxg:GridColumn FieldName="XDescription" Header="测试条件"/>
+                <dxg:GridColumn FieldName="LimitDescription" Header="门限描述"/>
+                <dxg:GridColumn FieldName="YMin" Header="Y最小指标"/>
+                <dxg:GridColumn FieldName="YMax" Header="Y最大指标"/>
+                <dxg:GridColumn FieldName="FreqRange" Header="频率范围">
+                    <dxg:GridColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding RowData.Row.FreqRange,Converter={l:TreelistControlFreqConverter}}"/>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellTemplate>
+                </dxg:GridColumn>
+                <!--<dxg:GridColumn FieldName="VarName" Header="变量名称"/>-->                    
+                <dxg:GridColumn FieldName="XRange"  Header="X指标范围">
+                    <dxg:GridColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding RowData.Row.XRange}"/>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellTemplate>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="YRange" Header="Y指标范围">
+                    <dxg:GridColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding RowData.Row.YRange}"/>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellTemplate>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="IsTest" Header="跳过">
+                    <dxg:GridColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox  IsChecked="{Binding RowData.Row.IsTest}" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellTemplate>
+                </dxg:GridColumn>
+                <!--<dxg:GridColumn FieldName="FunctionEnable" Header="公式使能">
+                    <dxg:GridColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox  IsChecked="{Binding FunctionEnable}" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellTemplate>
+                </dxg:GridColumn>-->
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True" Name="tableview" ShowTotalSummary="False" ShowGroupPanel="False"
+                               CellStyle="{DynamicResource cellStyle}"/>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>

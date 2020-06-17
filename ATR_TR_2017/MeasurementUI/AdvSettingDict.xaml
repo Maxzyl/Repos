@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:ViewModelBaseLib;assembly=ViewModelBaseLib"
+                    xmlns:tm="clr-namespace:ModelBaseLib;assembly=ModelBaseLib"
+                    xmlns:l="clr-namespace:MeasurementUI">
+    <!--<DataTemplate DataType="{x:Type vm:DCPSTestStepVM}">
+        <l:UC_Adv_DCPSTestStep/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:IMDTestStepVM}">
+        <l:UC_Adv_IP3TestStep/>
+    </DataTemplate>-->
+    <DataTemplate DataType="{x:Type vm:ManualConnectionVM}">
+        <l:UC_Adv_ManualConnection/>
+    </DataTemplate>
+    <!--<DataTemplate DataType="{x:Type vm:NFTestStepVM}">
+        <l:UC_Adv_NFTestStep/>
+    </DataTemplate>-->
+    <DataTemplate DataType="{x:Type vm:PointTestItemVM}">
+        <l:UC_Adv_PointTestItem/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:TestMarkerVM}">
+        <l:UC_Adv_XYTestMarker/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:XYTestMarkerVM}">
+        <l:UC_Adv_XYTestMarker/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:TestTraceVM}">
+        <l:UC_Adv_TestTrace/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type tm:CalcPointTestItem}">
+        <l:UC_Adv_CalcPointTestItem/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type tm:CalcPointTestTrace}">
+        <l:UC_Adv_CalcPointTestTrace/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:LinkTestStepVM}">
+        <l:UC_Adv_LinkTestStep/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:TRTestItemVM}">
+        <l:AdvTRTestItemView/>
+    </DataTemplate>
+    
+</ResourceDictionary>

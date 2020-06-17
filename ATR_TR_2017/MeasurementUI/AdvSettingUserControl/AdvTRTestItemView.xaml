@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="MeasurementUI.AdvTRTestItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:dataUtils="clr-namespace:DataUtils;assembly=DataUtils"
+             xmlns:l="clr-namespace:MeasurementUI"
+             dxb:BarNameScope.IsScopeOwner="True"
+             xmlns:local="clr-namespace:MeasurementUI"
+             xmlns:vm="clr-namespace:ViewModelBaseLib;assembly=ViewModelBaseLib"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+             d:DesignHeight="350" d:DesignWidth="1000"  MinHeight="300">
+    <UserControl.Resources>
+        <dataUtils:FreqStringConverter x:Key="freqStringConverter"/>
+        <Style TargetType="CheckBox">
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="Margin" Value="5,10,5,0"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
+        <Style TargetType="dxe:TextEdit">
+            <Setter Property="Margin" Value="0,3,5,3"></Setter>
+            <Setter Property="Height" Value="26"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontFamily"  Value="微软雅黑"></Setter>
+            <Setter Property="Width" Value="130"></Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Width" Value="78"></Setter>
+            <Setter Property="Margin" Value="40,3,5,0"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <Border BorderBrush="Black" BorderThickness="2">
+        <TabControl x:Name="tab">
+            <TabControl.Items>
+                <TabItem Header="基本设置" Height="26" Width="90" HorizontalAlignment="Center">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer.Content>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="名称" Margin="10,3"/>
+                                    <dxe:TextEdit  Text="{Binding Path=UserDefName}"/>
+                                    <Label   Margin="0,3"/>
+                                    <Label Content="偏量值" />
+                                    <dxe:TextEdit Text="{Binding Path=Compensation}"/>
+                                    <Label   Margin="0,3"/>
+                                    <Label Content="变量名称" Margin="0,3"/>
+                                    <dxe:TextEdit  Text="{Binding Path=VarName}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="端口描述" Margin="10,3"/>
+                                    <dxe:TextEdit  Text="{Binding TestConfigDesciption}"/>
+                                    <Label   Margin="0,3"/>
+                                    <Label Content="测试条件"/>
+                                    <dxe:TextEdit  Text="{Binding XDescription}"/>
+                                    <Label  Margin="0,3"/>
+                                    <CheckBox Content="测试使能" IsChecked="{Binding IsTest}"/>
+                                </StackPanel>
+                                
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Y最小指标" Margin="10,3"/>
+                                    <dxe:TextEdit Name="txtYMin" Text="{Binding LowLimit}">
+                                        <dxe:TextEdit.ToolTip>支持公式，例如3*att+4*phi+5</dxe:TextEdit.ToolTip>
+                                    </dxe:TextEdit>
+                                    <Label  Margin="0,3"/>
+                                    <Label Content="Y最大指标"/>
+                                    <dxe:TextEdit Name="txtYMax" Text="{Binding HighLimit}">
+                                        <dxe:TextEdit.ToolTip>支持公式，例如3*att+4*phi+5</dxe:TextEdit.ToolTip>
+                                    </dxe:TextEdit>
+                                    
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="门限描述" Margin="10,3"/>
+                                    <dxe:TextEdit Text="{Binding LimitDescription}"/>
+                                </StackPanel>    
+                            </StackPanel>
+                        </ScrollViewer.Content>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
+
+    </Border>
+</UserControl>

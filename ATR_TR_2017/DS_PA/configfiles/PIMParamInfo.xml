@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<FreqRangeList>
+  <FreqRange>
+    <Value>700-800MHz</Value>
+  </FreqRange>
+  <FreqRange>
+    <Value>800-900MHz</Value>
+  </FreqRange>
+  <FreqRange>
+    <Value>900-1000MHz</Value>
+  </FreqRange>
+  <FreqRange>
+    <Value>1000-1100MHz</Value>
+  </FreqRange>
+  <FreqRange>
+    <Value>1100-1200MHz</Value>
+  </FreqRange>
+  <FreqRange>
+    <Value>1200-1300MHz</Value>
+  </FreqRange>
+  <BANDS Name="频段">
+    <Band>PIM-400</Band>
+    <Band>PIM-700</Band>
+    <Band>PIM-800</Band>
+    <Band>PIM-900</Band>
+    <Band>PIM-900J</Band>
+    <Band>PIM-1800</Band>
+    <Band>PIM-1900</Band>
+    <Band>PIM-2100</Band>
+    <Band>PIM-2600</Band>
+  </BANDS>
+  <PIM-400 Unit="MHz">
+    <TBandMin>365</TBandMin>
+    <TBandMax>375</TBandMax>
+    <RBandMin>345</RBandMin>
+    <RBandMax>355</RBandMax>
+  </PIM-400>
+  <PIM-700 Unit="MHz">
+    <TBandMin>728</TBandMin>
+    <TBandMax>746</TBandMax>
+    <RBandMin>698</RBandMin>
+    <RBandMax>716</RBandMax>
+  </PIM-700>
+  <PIM-800 Unit="MHz">
+    <TBandMin>869</TBandMin>
+    <TBandMax>894</TBandMax>
+    <RBandMin>824</RBandMin>
+    <RBandMax>849</RBandMax>
+  </PIM-800>
+  <PIM-900 Unit="MHz">
+    <TBandMin>925</TBandMin>
+    <TBandMax>960</TBandMax>
+    <RBandMin>890</RBandMin>
+    <RBandMax>915</RBandMax>
+  </PIM-900>
+  <PIM-900J Unit="MHz">
+    <TBandMin>930</TBandMin>
+    <TBandMax>960</TBandMax>
+    <RBandMin>890</RBandMin>
+    <RBandMax>908</RBandMax>
+  </PIM-900J>
+  <PIM-1800 Unit="MHz">
+    <TBandMin>1805</TBandMin>
+    <TBandMax>1880</TBandMax>
+    <RBandMin>1710</RBandMin>
+    <RBandMax>1785</RBandMax>
+  </PIM-1800>
+  <PIM-1900 Unit="MHz">
+    <TBandMin>1930</TBandMin>
+    <TBandMax>1990</TBandMax>
+    <RBandMin>1870</RBandMin>
+    <RBandMax>1895</RBandMax>
+  </PIM-1900>
+  <PIM-2100 Unit="MHz">
+    <TBandMin>2110</TBandMin>
+    <TBandMax>2170</TBandMax>
+    <RBandMin>1920</RBandMin>
+    <RBandMax>2060</RBandMax>
+  </PIM-2100>
+  <PIM-2600 Unit="MHz">
+    <TBandMin>2620</TBandMin>
+    <TBandMax>2690</TBandMax>
+    <RBandMin>2545</RBandMin>
+    <RBandMax>2580</RBandMax>
+  </PIM-2600>
+</FreqRangeList>

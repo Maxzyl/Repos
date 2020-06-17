@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D14F0A0F-1EC4-4F5E-9B1C-0B49B9F2806D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MeasurementUI</RootNamespace>
+    <AssemblyName>MeasurementUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\ATE Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\软件酷\Devexpress1427\Components\Bin\Framework\DevExpress.Data.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\软件酷\Devexpress1427\Components\Bin\Framework\DevExpress.Mvvm.v14.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\DevExpress.Printing.v14.2.Core\v4.0_14.2.7.0__b88d1754d700e49a\DevExpress.Printing.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Xpf.Core.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.DemoBase.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\DevExpress.Xpf.DemoBase.v14.2\v4.0_14.2.7.0__b88d1754d700e49a\DevExpress.Xpf.DemoBase.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\软件酷\Devexpress1427\Components\Bin\Framework\DevExpress.Xpf.Docking.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\软件酷\Devexpress1427\Components\Bin\Framework\DevExpress.Xpf.Grid.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\软件酷\Devexpress1427\Components\Bin\Framework\DevExpress.Xpf.Grid.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\软件酷\Devexpress1427\Components\Bin\Framework\DevExpress.Xpf.Layout.v14.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\DevExpress.Xpf.Printing.v14.2\v4.0_14.2.7.0__b88d1754d700e49a\DevExpress.Xpf.Printing.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.PropertyGrid.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Ribbon.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\DevExpress.Xpf.Ribbon.v14.2\v4.0_14.2.7.0__b88d1754d700e49a\DevExpress.Xpf.Ribbon.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="GeneFunLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ATE Output\GeneFunLib.dll</HintPath>
+    </Reference>
+    <Reference Include="InstruDriver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ATE Output\InstruDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs">
+      <HintPath>..\PIMModelLib\DLL\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ViewModelBaseLib\Dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RouteLine">
+      <HintPath>..\PIMModelLib\DLL\RouteLine.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ATE Output\ServiceInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdvSettingUserControl\UC_Adv_CalcPointTestItem.xaml.cs">
+      <DependentUpon>UC_Adv_CalcPointTestItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\UC_Adv_CalcPointTestTrace.xaml.cs">
+      <DependentUpon>UC_Adv_CalcPointTestTrace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\UC_Adv_FormulaCalcTestStep.xaml.cs">
+      <DependentUpon>UC_Adv_FormulaCalcTestStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\UC_Adv_LinkTestStep.xaml.cs">
+      <DependentUpon>UC_Adv_LinkTestStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\UC_Adv_ManualConnection.xaml.cs">
+      <DependentUpon>UC_Adv_ManualConnection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\AdvTRTestItemView.xaml.cs">
+      <DependentUpon>AdvTRTestItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\UC_Adv_PointTestItem.xaml.cs">
+      <DependentUpon>UC_Adv_PointTestItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\UC_Adv_SpurTestStep.xaml.cs">
+      <DependentUpon>UC_Adv_SpurTestStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\UC_Adv_TestTrace.xaml.cs">
+      <DependentUpon>UC_Adv_TestTrace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\UC_Adv_ShowImage.xaml.cs">
+      <DependentUpon>UC_Adv_ShowImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvSettingUserControl\UC_Adv_XYTestMarker.xaml.cs">
+      <DependentUpon>UC_Adv_XYTestMarker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter.cs" />
+    <Compile Include="CustomAdorner.cs" />
+    <Compile Include="DataDisplay\AISGDeviceInfo.xaml.cs">
+      <DependentUpon>AISGDeviceInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDisplay\BarcodeInput.xaml.cs">
+      <DependentUpon>BarcodeInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDisplay\MutilSNInputUserControl.xaml.cs">
+      <DependentUpon>MutilSNInputUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDisplay\ResultDisplay.xaml.cs">
+      <DependentUpon>ResultDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDisplay\SNInputUserControl.xaml.cs">
+      <DependentUpon>SNInputUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDisplay\TraceSetWindow.xaml.cs">
+      <DependentUpon>TraceSetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentStyle.cs" />
+    <Compile Include="DXSplashScreen\LoadFile_SplashScreen.xaml.cs">
+      <DependentUpon>LoadFile_SplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListBoxRectSelection.cs" />
+    <Compile Include="ListViewExtention.cs" />
+    <Compile Include="onebuttonheaderview.cs" />
+    <Compile Include="OverViewUserControl\TRTestItemView.xaml.cs">
+      <DependentUpon>TRTestItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OverViewUserControl\UC_ManualConnection.xaml.cs">
+      <DependentUpon>UC_ManualConnection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OverViewUserControl\UC_PointTestItem.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>UC_PointTestItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OverViewUserControl\UC_TestStep.xaml.cs">
+      <DependentUpon>UC_TestStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OverViewUserControl\UC_TestTrace.xaml.cs">
+      <DependentUpon>UC_TestTrace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OverViewUserControl\UC_XYTestMarker.xaml.cs">
+      <DependentUpon>UC_XYTestMarker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlainView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickType.cs" />
+    <Compile Include="RecangleSelectionEventArgs.cs" />
+    <Compile Include="RectangleSelectionGesture.cs" />
+    <Compile Include="TreeViewDataTemplateSelector.cs" />
+    <Compile Include="View\AddFileName.xaml.cs">
+      <DependentUpon>AddFileName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CalibrationContentUC.xaml.cs">
+      <DependentUpon>CalibrationContentUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CalibrationUC.xaml.cs">
+      <DependentUpon>CalibrationUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CalTestStepSelection.xaml.cs">
+      <DependentUpon>CalTestStepSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChooseResult.xaml.cs">
+      <DependentUpon>ChooseResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoopTestStepUC.xaml.cs">
+      <DependentUpon>LoopTestStepUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManualStepUC.xaml.cs">
+      <DependentUpon>ManualStepUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PropertyGridUC.xaml.cs">
+      <DependentUpon>PropertyGridUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectConfigPath.xaml.cs">
+      <DependentUpon>SelectConfigPath.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TestPlanLocalSettingView.xaml.cs">
+      <DependentUpon>TestPlanLocalSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TestProgress.xaml.cs">
+      <DependentUpon>TestProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViewExtension.cs" />
+    <Compile Include="View\ConfigTestStep.xaml.cs">
+      <DependentUpon>ConfigTestStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DynamicAddStep.xaml.cs">
+      <DependentUpon>DynamicAddStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstruMgrNewView.xaml.cs">
+      <DependentUpon>InstruMgrNewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DutDescSet.xaml.cs">
+      <DependentUpon>DutDescSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstruMgrSetUp.xaml.cs">
+      <DependentUpon>InstruMgrSetUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProjectMgr_Local.xaml.cs">
+      <DependentUpon>ProjectMgr_Local.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProjectMgr_Old.xaml.cs">
+      <DependentUpon>ProjectMgr_Old.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TestSpecUC.xaml.cs">
+      <DependentUpon>TestSpecUC.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AdvSettingDict.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_CalcPointTestItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_CalcPointTestTrace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_FormulaCalcTestStep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_LinkTestStep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_ManualConnection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\AdvTRTestItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_PointTestItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_SpurTestStep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_TestTrace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_ShowImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvSettingUserControl\UC_Adv_XYTestMarker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataDisplay\AISGDeviceInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataDisplay\BarcodeInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataDisplay\MutilSNInputUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataDisplay\ResultDisplay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataDisplay\SNInputUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataDisplay\TraceSetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DXSplashScreen\LoadFile_SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OverViewUserControl\TRTestItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OverViewUserControl\UC_ManualConnection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OverViewUserControl\UC_PointTestItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OverViewUserControl\UC_TestStep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OverViewUserControl\UC_TestTrace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OverViewUserControl\UC_XYTestMarker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AddFileName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CalibrationContentUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CalibrationUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CalTestStepSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChooseResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoopTestStepUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManualStepUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PropertyGridUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SelectConfigPath.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TestPlanLocalSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TestProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConfigTestStep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DynamicAddStep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InstruMgrNewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DutDescSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InstruMgrSetUp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ProjectMgr_Local.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProjectMgr_Old.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TestSpecUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SymtantPropertyGrid\SymtantPropertyGrid\SymtantPropertyGrid.csproj">
+      <Project>{d81896a3-8a55-4652-8199-cc5910aaca10}</Project>
+      <Name>SymtantPropertyGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataUtils\DataUtils.csproj">
+      <Project>{6ac31983-a6a1-435e-addc-1543f048808d}</Project>
+      <Name>DataUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelBaseLib\ModelBaseLib.csproj">
+      <Project>{6c45f818-29ad-443f-b4fd-d1855fb7ad63}</Project>
+      <Name>ModelBaseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SymtChartLib\SymtChartLib.csproj">
+      <Project>{52635b02-78dc-49f9-ab6f-5dfbcb50467f}</Project>
+      <Name>SymtChartLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemFunction\SystemFunction.csproj">
+      <Project>{872c0c83-3b31-444b-a59d-36354ac5c4a3}</Project>
+      <Name>SystemFunction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModelBaseLib\ViewModelBaseLib.csproj">
+      <Project>{c7a08239-6446-4af4-b067-db07bbfe79cc}</Project>
+      <Name>ViewModelBaseLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\信号源.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\副本信号源.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\网分.png" />
+    <Resource Include="Images\副本网分.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\连接.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\全屏.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Connnect.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\UnConnect.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\null.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\文件夹.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\后退.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\文件.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\设置 %283%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\新建文件.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\新建文件夹.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\剪切.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\复制.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\粘贴 %281%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\剪切 %281%29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\复制 %282%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\粘贴 %282%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\删除.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\barcode.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\confirm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\curved.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\go.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pause.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\stop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\箭头箭头.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\添加.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\放大镜.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\保存.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\加载.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\begin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pause %282%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\暂停 %282%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\返回.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\开始.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\暂停.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\开始 %281%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\添加图片.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\文件 %282%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\文件 %284%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\文件 %281%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\文件 %286%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\文件 %287%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\文件 %2810%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\文件 %2811%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\文件 %289%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\项目.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\连接 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\数据指标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_wtbapp_文件01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\T.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\P.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\连接 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\文件 %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\添加文件.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\菜单.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\菜单 %282%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\null1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\添加文件 %281%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\download.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Clear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\L.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\B.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OverViewUserControl\themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\上移.png" />
+    <Resource Include="Images\下移.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<InstruDriverConfig>
+  <info model="N9030" asm="InstruDriver" cls="Symtant.InstruDriver.SignalAnalyzer.KtXSpecAnalyzer"/>
+  <info model="N9020" asm="InstruDriver" cls="Symtant.InstruDriver.SignalAnalyzer.KtXSpecAnalyzer"/>
+  <info model="N9010A" asm="InstruDriver" cls="Symtant.InstruDriver.SignalAnalyzer.KtXSpecAnalyzer"/>
+  <info model="N9000" asm="InstruDriver" cls="Symtant.InstruDriver.SignalAnalyzer.KtXSpecAnalyzer"/>
+  <info model="FSV" asm="InstruDriver" cls="Symtant.InstruDriver.SignalAnalyzer.RSFSVSpecAnalyzer"/>
+  <info model="N8973A" asm="InstruDriver" cls="Symtant.InstruDriver.NFAnalyzer.N897xANFAnalyzer"/>
+  <info model="N897xB" asm="InstruDriver" cls="Symtant.InstruDriver.NFAnalyzer.N897xBNFAnalyzer"/>
+  <info model="GPD3303D" asm="InstruDriver" cls="Symtant.InstruDriver.DCPowerSupply.GPD3303DPowerSupply"/>
+  <info model="N5181A" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="N5182A" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="N5182B" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="N5181A" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="N5181B" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="N5183A" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="N5183B" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="N5171B" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="N5172B" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="N9310A" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="E8257D" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="E8267D" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="E8362B" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="E4421B" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="E4422B" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="E4422A" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="E4432B" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.KTXSignalGenerator"/>
+  <info model="SMB100A" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.RSSMBSignalGenerator"/>
+  <info model="SGS100A" asm="InstruDriver" cls="Symtant.InstruDriver.RFSignalGenerator.RSSMBSignalGenerator"/>
+  <info model="N1912A" asm="InstruDriver" cls="Symtant.InstruDriver.PowerMeter.KtN191xPowerMeter"/>
+</InstruDriverConfig>

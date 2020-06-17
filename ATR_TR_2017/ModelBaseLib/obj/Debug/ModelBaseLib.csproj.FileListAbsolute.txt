@@ -1,0 +1,15 @@
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\ModelBaseLib.csprojAssemblyReference.cache
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\Window\ManualLoopWindow.g.cs
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\ModelBaseLib_MarkupCompile.cache
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\ModelBaseLib_MarkupCompile.lref
+D:\项目\ATE Output\ModelBaseLib.XML
+D:\项目\ATE Output\ModelBaseLib.dll
+D:\项目\ATE Output\ModelBaseLib.pdb
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\Chart_UC.baml
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\Chart_UC.g.cs
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\Window\ManualLoopWindow.baml
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\ModelBaseLib.g.resources
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\ModelBaseLib.csproj.CoreCompileInputs.cache
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\ModelBaseLib.csproj.CopyComplete
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\ModelBaseLib.dll
+D:\项目\ATR_TR_2017\ModelBaseLib\obj\Debug\ModelBaseLib.pdb
